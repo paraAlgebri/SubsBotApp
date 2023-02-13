@@ -10,6 +10,6 @@
         <module name="bot.main" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel target="15" />
+    <bytecodeTargetLevel target="1.8" />
   </component>
 </project>

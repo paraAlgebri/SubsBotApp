@@ -5,30 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3afff132-9c00-431a-972c-60c6d81ece31" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/db/changelog/start.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.8.3/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.8.3/executionHistory/executionHistory.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.8.3/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.8.3/executionHistory/executionHistory.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.8.3/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.8.3/fileHashes/fileHashes.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.8.3/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.8.3/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/example/buns/BotApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/example/buns/BotApplication.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/example/buns/config/SecurityConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/example/buns/config/SecurityConfig.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/example/buns/dal/entity/SubscriberDal.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/example/buns/dal/entity/SubscriberDal.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/example/buns/dal/entity/TypeSubscribe.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/example/buns/dal/entity/TypeSubscribe.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/example/buns/dal/repository/SubscriberRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/example/buns/dal/repository/SubscriberRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/example/buns/rest/controller/SubscriberController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/example/buns/rest/controller/SubscriberController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/example/buns/rest/model/MonthStat.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/example/buns/rest/model/MonthStat.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/example/buns/rest/model/Subscriber.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/example/buns/rest/model/Subscriber.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/example/buns/service/SubscribersService.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/example/buns/service/SubscribersService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/example/buns/service/TelegramBotHandler$ADMINCOMMANDS.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/example/buns/service/TelegramBotHandler$ADMINCOMMANDS.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/example/buns/service/TelegramBotHandler$COMMANDS.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/example/buns/service/TelegramBotHandler$COMMANDS.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/example/buns/service/TelegramBotHandler$Scheduler.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/example/buns/service/TelegramBotHandler$Scheduler.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/example/buns/service/TelegramBotHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/example/buns/service/TelegramBotHandler.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/source-classes-mapping.txt" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/source-classes-mapping.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -235,7 +213,7 @@
       <workItem from="1676231952506" duration="451000" />
       <workItem from="1676273301921" duration="13844000" />
       <workItem from="1676293699542" duration="329000" />
-      <workItem from="1676294429533" duration="12162000" />
+      <workItem from="1676294429533" duration="12583000" />
     </task>
     <servers />
   </component>
