@@ -99,7 +99,7 @@
     </option>
   </component>
   <component name="RunManager" selected="Spring Boot.BotApplication">
-    <configuration name="SubsBotApp [bootJar]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="SubsBotApp [jar]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -110,7 +110,7 @@
         </option>
         <option name="taskNames">
           <list>
-            <option value="bootJar" />
+            <option value="jar" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -182,16 +182,16 @@
       <item itemvalue="Docker.DockerCompose.yml.postgresqldb: Compose Deployment" />
       <item itemvalue="Docker.DockerCompose.yml: Compose Deployment" />
       <item itemvalue="Docker.Dockerfile" />
-      <item itemvalue="Gradle.SubsBotApp [bootJar]" />
+      <item itemvalue="Gradle.SubsBotApp [jar]" />
       <item itemvalue="Spring Boot.BotApplication" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.SubsBotApp [jar]" />
         <item itemvalue="Docker.DockerCompose.yml: Compose Deployment" />
         <item itemvalue="Docker.DockerCompose.yml.app: Compose Deployment" />
         <item itemvalue="Docker.DockerCompose.yml.postgresqldb: Compose Deployment" />
         <item itemvalue="Docker.Dockerfile" />
-        <item itemvalue="Gradle.SubsBotApp [bootJar]" />
       </list>
     </recent_temporary>
   </component>
@@ -213,7 +213,7 @@
       <workItem from="1676231952506" duration="451000" />
       <workItem from="1676273301921" duration="13844000" />
       <workItem from="1676293699542" duration="329000" />
-      <workItem from="1676294429533" duration="12583000" />
+      <workItem from="1676294429533" duration="14161000" />
     </task>
     <servers />
   </component>

@@ -48,6 +48,13 @@ dependencies {
 		useJUnitPlatform()
 	}
 
+	jar{
+		manifest {
+			attributes(
+					'Main-Class': 'com.example.buns.BotApplication'
+			)
+		}
+	}
 	bootJar {
 		archiveFileName = "bot.jar"
 	}
