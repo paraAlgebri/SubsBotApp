@@ -6,7 +6,7 @@ plugins {
 
 group = 'com.example'
 version = '0.0.1-SNAPSHOT'
-sourceCompatibility = '8'
+sourceCompatibility = '15'
 
 configurations {
 	compileOnly {
@@ -40,7 +40,7 @@ dependencies {
 	implementation('org.telegram:telegrambots-spring-boot-starter:6.4.0')
 	implementation("org.springdoc:springdoc-openapi-ui:1.2.32")
 	implementation 'org.apache.commons:commons-lang3:3.12.0'
-
+}
 
 
 
@@ -51,4 +51,3 @@ dependencies {
 	bootJar {
 		archiveFileName = "bot.jar"
 	}
-}
