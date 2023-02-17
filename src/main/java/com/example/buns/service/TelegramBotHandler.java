@@ -2,6 +2,7 @@ package com.example.buns.service;
 
 import com.example.buns.dal.entity.TypeSubscribe;
 import com.example.buns.rest.model.Subscriber;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.Data;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
@@ -62,20 +63,6 @@ public class TelegramBotHandler extends TelegramLongPollingBot {
         }
     }
 
-    private enum ADMINCOMMANDS {
-        CLEAR_EXPIRED("clear-expired"),
-        GIVE_RIGHTS("gr");
-
-        private String command;
-
-        ADMINCOMMANDS(String command) {
-            this.command = command;
-        }
-
-        public String getCommand() {
-            return command;
-        }
-    }
 
     @Value("${telegram.support.chat-id}")
     private Long supportChatId;
@@ -110,9 +97,11 @@ public class TelegramBotHandler extends TelegramLongPollingBot {
 
                 Pattern patternClear = Pattern.compile("^clear-expired$");
                 Pattern patternGiveRights = Pattern.compile("^gr\\s(\\d*)$");
+                Pattern patternGetInfo = Pattern.compile("^get-info\\s(\\d*)$");
 
                 Matcher matcherClear = patternClear.matcher(text);
                 Matcher matcherGiveRights = patternGiveRights.matcher(text);
+                Matcher matcherGetInfo =  patternGetInfo.matcher(text);
 
 
                 if (matcherClear.find() && isAdmin(chat_id)) {
@@ -120,6 +109,8 @@ public class TelegramBotHandler extends TelegramLongPollingBot {
                 } else if (matcherGiveRights.find() && isAdmin(chat_id)) {
                     giveRights(Long.valueOf(matcherGiveRights.group(1)));
 
+                } else if (matcherGetInfo.find() && isAdmin(chat_id)) {
+                    getInfo(Long.valueOf(matcherGetInfo.group(1)));
                 } else {
                     SendMessage message = getCommandResponse(text, update.getMessage().getFrom(), chat_id);
                     message.enableHtml(true);
@@ -206,7 +197,7 @@ public class TelegramBotHandler extends TelegramLongPollingBot {
 
             try {
                 if (StringUtils.isNumeric(update.getCallbackQuery().getData())) {
-                   giveRights(Long.valueOf(update.getCallbackQuery().getData()));
+                    giveRights(Long.valueOf(update.getCallbackQuery().getData()));
                 } else {
                     SendMessage message = getCommandResponse(update.getCallbackQuery().getData(), update.getCallbackQuery().getFrom(), update.getCallbackQuery().getMessage().getChatId());
                     message.enableHtml(true);
@@ -214,8 +205,7 @@ public class TelegramBotHandler extends TelegramLongPollingBot {
                     message.setChatId(String.valueOf(update.getCallbackQuery().getMessage().getChatId()));
                     execute(message);
                 }
-            }
-            catch (TelegramApiException e) {
+            } catch (TelegramApiException e) {
                 e.printStackTrace();
                 sendInfoToSupport("Error " + e.getMessage());
 
@@ -255,6 +245,18 @@ public class TelegramBotHandler extends TelegramLongPollingBot {
                 sendInfoToSupport("Ошибка при удалении \nChat ID = " + subscriber.getTelegramId() + "\nID = " + subscriber.getId() + "\n" + ex.getMessage());
             }
         }
+    }
+
+    @SneakyThrows
+    public void getInfo(Long chatId){
+       Subscriber subscriber = subscribersService.getSubscriberByTelegramId(chatId);
+        ObjectMapper mapper = new ObjectMapper();
+        String json = mapper.writerWithDefaultPrettyPrinter().writeValueAsString(subscriber);
+        SendMessage message = new SendMessage();
+        message.setText(json);
+        message.setChatId(supportChatId);
+        execute(message);
+
     }
 
     public void notifyExpiredSoon() throws TelegramApiException {
@@ -307,7 +309,6 @@ public class TelegramBotHandler extends TelegramLongPollingBot {
             messageSupport.setText("Ощибка при удалении пользователя из бана: " + e.getMessage());
             execute(messageSupport);
         }
-
         addInfoSubscriberToDb(null, chatId, null, TypeSubscribe.FULL);
 
         SendMessage message = new SendMessage();
@@ -347,7 +348,6 @@ public class TelegramBotHandler extends TelegramLongPollingBot {
     }
 
 
-
     private SendMessage handleNotFoundCommand() {
         SendMessage message = new SendMessage();
         message.setText("Вы что-то сделали не так. Выберите команду:");
@@ -377,17 +377,22 @@ public class TelegramBotHandler extends TelegramLongPollingBot {
         return message;
     }
 
-    private Subscriber addInfoSubscriberToDb(String username, Long chatId, String name,
-                                             TypeSubscribe typeSubscribe) {
+    private void addInfoSubscriberToDb(String username, Long chatId, String name, TypeSubscribe typeSubscribe) {
+
+
         Subscriber subscriber = new Subscriber();
         subscriber.setTypeSubscribe(typeSubscribe);
         subscriber.setTelegramId(chatId);
         subscriber.setName(name);
         subscriber.setLogin(username);
         subscriber.setStartDate(LocalDateTime.now());
+        Long id = subscribersService.getSubscriberByTelegramId(chatId).getId();
+        if (subscribersService.isInDb(chatId)) {
+            subscribersService.add(subscriber);
 
-        return subscribersService.add(subscriber);
-
+        } else {
+            subscribersService.update(id,LocalDateTime.now().plusDays(30));
+        }
     }
 
 
@@ -455,7 +460,6 @@ public class TelegramBotHandler extends TelegramLongPollingBot {
         //fixedRate in milliseconds 3600000 * 24 = 1 day
         @Scheduled(fixedRate = 3600000 * 24)
         public void reportCurrentData() throws TelegramApiException {
-
             clearExpired();
             notifyExpiredSoon();
         }

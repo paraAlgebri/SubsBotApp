@@ -10,6 +10,7 @@ import ma.glasnost.orika.MapperFacade;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.time.LocalDateTime;
 import java.time.format.TextStyle;
 import java.util.List;
 import java.util.Locale;
@@ -19,7 +20,6 @@ import java.util.stream.Collectors;
 import java.util.stream.StreamSupport;
 
 import static java.util.stream.Collectors.groupingBy;
-
 
 
 @Service
@@ -36,8 +36,8 @@ public class SubscribersService {
     }
 
 
-
     public Subscriber add(Subscriber subscriber) {
+
         SubscriberDal subscriberDal = new SubscriberDal();
         subscriberDal.setTelegramId(subscriber.getTelegramId());
         subscriberDal.setName(subscriber.getName());
@@ -54,6 +54,7 @@ public class SubscribersService {
 
         subscriberDal = subscriberRepository.save(subscriberDal);
 
+
         return mapperFacade.map(subscriberDal, Subscriber.class);
     }
 
@@ -65,10 +66,10 @@ public class SubscribersService {
         return stats.entrySet().stream().map(entry -> new MonthStat(entry.getKey(), entry.getValue().size())).collect(Collectors.toList());
     }
 
-    public Subscriber update(Subscriber subscriber) {
-        Optional<SubscriberDal> subscriberOld = subscriberRepository.findById(subscriber.getId());
+    public void update(Long id, LocalDateTime finishdate){
+       subscriberRepository.updateSubscriber(finishdate,id);
 
-        return mapperFacade.map(subscriberRepository.save(mapperFacade.map(subscriber, SubscriberDal.class)), Subscriber.class);
+
     }
 
     public void disable(Long id) throws Exception {
@@ -88,18 +89,20 @@ public class SubscribersService {
     public List<Subscriber> getExpired() {
         return mapperFacade.mapAsList(subscriberRepository.findAllExpired(), Subscriber.class);
     }
+
     @Transactional
     public List<Subscriber> getExpiredIn1Day() {
         return mapperFacade.mapAsList(subscriberRepository.findAllIn1DayExpired(), Subscriber.class);
     }
+
     @Transactional
     public List<Subscriber> getExpiredIn5Days() {
         return mapperFacade.mapAsList(subscriberRepository.findAllIn5DaysExpired(), Subscriber.class);
     }
+
     public List<Subscriber> getExpiredIn3Days() {
         return mapperFacade.mapAsList(subscriberRepository.findAllIn3DaysExpired(), Subscriber.class);
     }
-
 
 
     public void remove(Long id) {
@@ -111,6 +114,13 @@ public class SubscribersService {
 
         return result == null || result.isEmpty();
     }
+
+    public boolean isInDb(Long chatId) {
+        List<SubscriberDal> result = subscriberRepository.findByTelegramIdAndTypeSubscribe(chatId, TypeSubscribe.FULL);
+
+        return result == null ||result.isEmpty();
+    }
+
     //get subscriber by telegram id
     public Subscriber getSubscriberByTelegramId(Long telegramId) {
         SubscriberDal subscriberDal = subscriberRepository.findByTelegramId(telegramId);

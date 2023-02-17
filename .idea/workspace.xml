@@ -5,10 +5,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3afff132-9c00-431a-972c-60c6d81ece31" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/c6cef26a-5534-4cc4-8f81-d5095ee33ce4.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/c6cef26a-5534-4cc4-8f81-d5095ee33ce4.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/c6cef26a-5534-4cc4-8f81-d5095ee33ce4/storage_v2/_src_/database/postgres.edMnLQ/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/c6cef26a-5534-4cc4-8f81-d5095ee33ce4/storage_v2/_src_/database/postgres.edMnLQ/schema/public.abK9xQ.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pgadmin/pgadmin4.db" beforeDir="false" afterPath="$PROJECT_DIR$/pgadmin/pgadmin4.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pgadmin/sessions/3a8d3bf9-7d85-4003-a574-c99c9b28f359" beforeDir="false" afterPath="$PROJECT_DIR$/pgadmin/sessions/3a8d3bf9-7d85-4003-a574-c99c9b28f359" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/example/buns/service/SubscribersService.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/example/buns/service/SubscribersService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/example/buns/service/TelegramBotHandler$ADMINCOMMANDS.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/example/buns/service/TelegramBotHandler$COMMANDS.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/example/buns/service/TelegramBotHandler$COMMANDS.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/example/buns/service/TelegramBotHandler$Scheduler.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/example/buns/service/TelegramBotHandler$Scheduler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/example/buns/service/TelegramBotHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/example/buns/service/TelegramBotHandler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/buns/dal/entity/SubscriberDal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/buns/dal/entity/SubscriberDal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/buns/dal/repository/SubscriberRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/buns/dal/repository/SubscriberRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/buns/rest/controller/SubscriberController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/buns/rest/controller/SubscriberController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/buns/service/SubscribersService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/buns/service/SubscribersService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/buns/service/TelegramBotHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/buns/service/TelegramBotHandler.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,6 +72,9 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="ProjectErrors" />
+  </component>
   <component name="ProjectId" id="2LEo41QRkpV96uGG2aOrQHi4XQY" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -107,21 +121,34 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Docker.docker-compose.yaml.pgadmin: Compose Deployment">
+  <component name="RunManager" selected="Spring Boot.BotApplication">
+    <configuration name="SubsBotApp [dependencies]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="dependencies" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
     <configuration name="BotApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <module name="bot.main" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.buns.BotApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
-    </configuration>
-    <configuration name="Dockerfile" type="docker-deploy" factoryName="dockerfile" temporary="true" server-name="Docker">
-      <deployment type="dockerfile">
-        <settings>
-          <option name="sourceFilePath" value="Dockerfile" />
-        </settings>
-      </deployment>
-      <method v="2" />
     </configuration>
     <configuration default="true" type="docker-deploy" factoryName="docker-compose.yml" temporary="true">
       <deployment type="docker-compose.yml">
@@ -187,16 +214,16 @@
       <item itemvalue="Docker.docker-compose.yaml.db: Compose Deployment" />
       <item itemvalue="Docker.docker-compose.yaml.pgadmin: Compose Deployment" />
       <item itemvalue="Docker.docker-compose.yaml: Compose Deployment" />
-      <item itemvalue="Docker.Dockerfile" />
+      <item itemvalue="Gradle.SubsBotApp [dependencies]" />
       <item itemvalue="Spring Boot.BotApplication" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Docker.docker-compose.yaml.pgadmin: Compose Deployment" />
+        <item itemvalue="Gradle.SubsBotApp [dependencies]" />
         <item itemvalue="Docker.docker-compose.yaml.app: Compose Deployment" />
+        <item itemvalue="Docker.docker-compose.yaml.pgadmin: Compose Deployment" />
         <item itemvalue="Docker.docker-compose.yaml: Compose Deployment" />
         <item itemvalue="Docker.docker-compose.yaml.db: Compose Deployment" />
-        <item itemvalue="Docker.Dockerfile" />
       </list>
     </recent_temporary>
   </component>
@@ -220,7 +247,8 @@
       <workItem from="1676293699542" duration="329000" />
       <workItem from="1676294429533" duration="15018000" />
       <workItem from="1676360317514" duration="4112000" />
-      <workItem from="1676395555662" duration="3755000" />
+      <workItem from="1676395555662" duration="4345000" />
+      <workItem from="1676559772879" duration="11693000" />
     </task>
     <servers />
   </component>

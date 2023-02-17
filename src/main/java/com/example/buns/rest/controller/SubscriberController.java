@@ -40,8 +40,5 @@ public class SubscriberController {
         return subscribersService.getStat();
     }
 
-    @PutMapping
-    public Subscriber update(@RequestBody Subscriber subscriber) {
-        return subscribersService.update(subscriber);
-    }
+
 }
