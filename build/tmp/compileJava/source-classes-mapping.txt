@@ -14,9 +14,9 @@ com/example/buns/rest/controller/SubscriberController.java
  com.example.buns.rest.controller.SubscriberController
 com/example/buns/service/SubscribersService.java
  com.example.buns.service.SubscribersService
+com/example/buns/rest/model/Subscriber.java
+ com.example.buns.rest.model.Subscriber
 com/example/buns/service/TelegramBotHandler.java
  com.example.buns.service.TelegramBotHandler
  com.example.buns.service.TelegramBotHandler$COMMANDS
  com.example.buns.service.TelegramBotHandler$Scheduler
-com/example/buns/rest/model/Subscriber.java
- com.example.buns.rest.model.Subscriber

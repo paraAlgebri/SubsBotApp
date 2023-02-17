@@ -386,11 +386,11 @@ public class TelegramBotHandler extends TelegramLongPollingBot {
         subscriber.setName(name);
         subscriber.setLogin(username);
         subscriber.setStartDate(LocalDateTime.now());
-        Long id = subscribersService.getSubscriberByTelegramId(chatId).getId();
         if (subscribersService.isInDb(chatId)) {
             subscribersService.add(subscriber);
 
         } else {
+            Long id = subscribersService.getSubscriberByTelegramId(chatId).getId();
             subscribersService.update(id,LocalDateTime.now().plusDays(30));
         }
     }
