@@ -13,17 +13,15 @@ import org.springframework.stereotype.Component;
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
 import org.telegram.telegrambots.meta.api.methods.ParseMode;
 import org.telegram.telegrambots.meta.api.methods.groupadministration.BanChatMember;
-import org.telegram.telegrambots.meta.api.methods.groupadministration.ExportChatInviteLink;
+import org.telegram.telegrambots.meta.api.methods.groupadministration.CreateChatInviteLink;
 import org.telegram.telegrambots.meta.api.methods.groupadministration.UnbanChatMember;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.api.methods.send.SendPhoto;
-import org.telegram.telegrambots.meta.api.objects.InputFile;
-import org.telegram.telegrambots.meta.api.objects.PhotoSize;
-import org.telegram.telegrambots.meta.api.objects.Update;
-import org.telegram.telegrambots.meta.api.objects.User;
+import org.telegram.telegrambots.meta.api.objects.*;
 import org.telegram.telegrambots.meta.api.objects.replykeyboard.InlineKeyboardMarkup;
 import org.telegram.telegrambots.meta.api.objects.replykeyboard.buttons.InlineKeyboardButton;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
+
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -38,8 +36,8 @@ import java.util.regex.Pattern;
 @Slf4j
 public class TelegramBotHandler extends TelegramLongPollingBot {
 
-    private final String ACCESS_LABEL = "Как получить доступ?";
-    private final String DEMO_LABEL = "Хочу демо-доступ на 3 дня";
+    private final String ACCESS_LABEL = "Як отримати доступ DNK?";
+    private final String DEMO_LABEL = "Хочу пробний доступ на 3 дні.";
 
     private final SubscribersService subscribersService;
 
@@ -88,26 +86,28 @@ public class TelegramBotHandler extends TelegramLongPollingBot {
 
 
     @SneakyThrows
+    @Override
     public void onUpdateReceived(Update update) {
-        if (update.hasMessage() && update.getMessage().hasText()) {
+
+
+        if (update.hasMessage() && update.getMessage().hasText() && !update.getMessage().getChatId().equals(privateChannelId)) {
             String text = update.getMessage().getText();
             long chat_id = update.getMessage().getChatId();
 
             try {
-
                 Pattern patternClear = Pattern.compile("^clear-expired$");
-                Pattern patternGiveRights = Pattern.compile("^gr\\s(\\d*)$");
+                Pattern patternGiveRights = Pattern.compile("^gr\\s(\\d*)\\s(\\d*)$");
                 Pattern patternGetInfo = Pattern.compile("^get-info\\s(\\d*)$");
 
                 Matcher matcherClear = patternClear.matcher(text);
                 Matcher matcherGiveRights = patternGiveRights.matcher(text);
-                Matcher matcherGetInfo =  patternGetInfo.matcher(text);
+                Matcher matcherGetInfo = patternGetInfo.matcher(text);
 
 
                 if (matcherClear.find() && isAdmin(chat_id)) {
                     clearExpired();
                 } else if (matcherGiveRights.find() && isAdmin(chat_id)) {
-                    giveRights(Long.valueOf(matcherGiveRights.group(1)));
+                    giveRightsForCertainAmountOfDays(Long.valueOf(matcherGiveRights.group(1)), Long.valueOf(matcherGiveRights.group(2)));
 
                 } else if (matcherGetInfo.find() && isAdmin(chat_id)) {
                     getInfo(Long.valueOf(matcherGetInfo.group(1)));
@@ -131,7 +131,7 @@ public class TelegramBotHandler extends TelegramLongPollingBot {
                 }
             }
         }
-        if (update.hasMessage() && update.getMessage().hasPhoto()) {
+        if (update.hasMessage() && update.getMessage().hasPhoto() && !update.getMessage().getChatId().equals(privateChannelId)) {
             String text = update.getMessage().getText();
             long chat_id = update.getMessage().getFrom().getId();
 
@@ -183,7 +183,7 @@ public class TelegramBotHandler extends TelegramLongPollingBot {
             }
 
             SendMessage messageSuccess = new SendMessage();
-            messageSuccess.setText("Ваши данные получены. Через некоторое время вы получите доступ.");
+            messageSuccess.setText("Ваші дані отримано, через деякий час ви отримаєте доступ");
             messageSuccess.setChatId(String.valueOf(chat_id));
 
             try {
@@ -233,7 +233,7 @@ public class TelegramBotHandler extends TelegramLongPollingBot {
                 subscribersService.disable(subscriber.getId());
 
                 SendMessage message = new SendMessage();
-                message.setText("Ваш доступ к каналу окончен");
+                message.setText("Ваш доступ до каналу вичерпано");
                 message.setChatId(String.valueOf(subscriber.getTelegramId()));
                 execute(message);
 
@@ -248,8 +248,8 @@ public class TelegramBotHandler extends TelegramLongPollingBot {
     }
 
     @SneakyThrows
-    public void getInfo(Long chatId){
-       Subscriber subscriber = subscribersService.getSubscriberByTelegramId(chatId);
+    public void getInfo(Long chatId) {
+        Subscriber subscriber = subscribersService.getSubscriberByTelegramId(chatId, TypeSubscribe.FULL);
         ObjectMapper mapper = new ObjectMapper();
         String json = mapper.writerWithDefaultPrettyPrinter().writeValueAsString(subscriber);
         SendMessage message = new SendMessage();
@@ -265,8 +265,10 @@ public class TelegramBotHandler extends TelegramLongPollingBot {
 
         for (Subscriber subscriber : subscribers1) {
             SendMessage message = new SendMessage();
-            message.setText("Ваш доступ к каналу закончится через 1 день");
+            message.setText("<b>Увага, Ваш доступ до DNK trading закінчиться через 1 день!</b>");
             message.setChatId(String.valueOf(subscriber.getTelegramId()));
+            message.setParseMode(ParseMode.HTML);
+
             execute(message);
 
         }
@@ -274,8 +276,9 @@ public class TelegramBotHandler extends TelegramLongPollingBot {
 
         for (Subscriber subscriber : subscribers5) {
             SendMessage message = new SendMessage();
-            message.setText("Ваш доступ к каналу закончится через 5 дней");
+            message.setText("<b>Увага, Ваш доступ до DNK trading закінчиться через 5 днів!</b>");
             message.setChatId(String.valueOf(subscriber.getTelegramId()));
+            message.setParseMode(ParseMode.HTML);
             execute(message);
 
         }
@@ -283,8 +286,9 @@ public class TelegramBotHandler extends TelegramLongPollingBot {
 
         for (Subscriber subscriber : subscribers3) {
             SendMessage message = new SendMessage();
-            message.setText("Ваш доступ к каналу закончится через 3 дня");
+            message.setText("<b>Увага, Ваш доступ до DNK trading закінчиться через 3 дні!</b>");
             message.setChatId(String.valueOf(subscriber.getTelegramId()));
+            message.setParseMode(ParseMode.HTML);
             execute(message);
 
         }
@@ -296,7 +300,6 @@ public class TelegramBotHandler extends TelegramLongPollingBot {
         SendMessage messageSupport = new SendMessage();
 
         messageSupport.setChatId(String.valueOf(supportChatId));
-
 
         try {
             UnbanChatMember unbanChatMember = new UnbanChatMember();
@@ -310,6 +313,34 @@ public class TelegramBotHandler extends TelegramLongPollingBot {
             execute(messageSupport);
         }
         addInfoSubscriberToDb(null, chatId, null, TypeSubscribe.FULL);
+
+        SendMessage message = new SendMessage();
+        message.setChatId(chatId);
+        message.setText("Вам видано повний доступ: " + getChatInviteLink());
+        execute(message);
+
+        messageSupport.setText("Выдан полный доступ для пользователя " + chatId);
+        execute(messageSupport);
+    }
+
+    private void giveRightsForCertainAmountOfDays(Long chatId, Long days) throws TelegramApiException {
+
+        SendMessage messageSupport = new SendMessage();
+
+        messageSupport.setChatId(String.valueOf(supportChatId));
+
+        try {
+            UnbanChatMember unbanChatMember = new UnbanChatMember();
+            unbanChatMember.setChatId(privateChannelId);
+            unbanChatMember.setOnlyIfBanned(true);
+            unbanChatMember.setUserId(chatId);
+
+            execute(unbanChatMember);
+        } catch (TelegramApiException e) {
+            messageSupport.setText("Ощибка при удалении пользователя из бана: " + e.getMessage());
+            execute(messageSupport);
+        }
+        addInfoSubscriberToDbForCertainDays(null, chatId, null, TypeSubscribe.FULL, days);
 
         SendMessage message = new SendMessage();
         message.setChatId(chatId);
@@ -350,26 +381,27 @@ public class TelegramBotHandler extends TelegramLongPollingBot {
 
     private SendMessage handleNotFoundCommand() {
         SendMessage message = new SendMessage();
-        message.setText("Вы что-то сделали не так. Выберите команду:");
+        message.setText("Ви щось зробили не так, використовуйте команди /start, /access, /demo");
         message.setReplyMarkup(getKeyboard());
         return message;
     }
 
     private String getChatInviteLink() throws TelegramApiException {
-        ExportChatInviteLink exportChatInviteLink = new ExportChatInviteLink();
+        CreateChatInviteLink exportChatInviteLink = new CreateChatInviteLink();
         exportChatInviteLink.setChatId(String.valueOf(privateChannelId));
-        return execute(exportChatInviteLink);
+        exportChatInviteLink.setMemberLimit(1);
+        return execute(exportChatInviteLink).getInviteLink();
     }
 
     private SendMessage handleDemoCommand(String username, String name, Long chatId) throws TelegramApiException {
         SendMessage message = new SendMessage();
 
         if (subscribersService.isDemoAccess(chatId)) {
-            message.setText("Ссылка для доступа к закрытому каналу: " + getChatInviteLink() + " \nЧерез 3 дня вы будете исключены из канала");
+            message.setText("Посилання для доступу до закритого каналу: " + getChatInviteLink() + " \nЧерез 3 пробні дні Ви будете виключені з каналу DNK trading.");
 
-            addInfoSubscriberToDb(username, chatId, name, TypeSubscribe.DEMO);
+            addDemoInfoSubscriberToDb(username, chatId, name, TypeSubscribe.DEMO);
         } else {
-            message.setText("Вы уже получали демо-доступ");
+            message.setText("Ви вже отримували демо доступ");
         }
 
         message.setReplyMarkup(getKeyboard());
@@ -390,15 +422,45 @@ public class TelegramBotHandler extends TelegramLongPollingBot {
             subscribersService.add(subscriber);
 
         } else {
-            Long id = subscribersService.getSubscriberByTelegramId(chatId).getId();
-            subscribersService.update(id,LocalDateTime.now().plusDays(30));
+            Long id = subscribersService.getSubscriberByTelegramId(chatId, TypeSubscribe.FULL).getId();
+            subscribersService.update(id, LocalDateTime.now().plusDays(30));
         }
+    }
+
+    private void addInfoSubscriberToDbForCertainDays(String username, Long chatId, String name, TypeSubscribe typeSubscribe, Long days) {
+
+        Subscriber subscriber = new Subscriber();
+        subscriber.setTypeSubscribe(typeSubscribe);
+        subscriber.setTelegramId(chatId);
+        subscriber.setName(name);
+        subscriber.setLogin(username);
+        subscriber.setStartDate(LocalDateTime.now());
+        if (subscribersService.isInDb(chatId)) {
+            subscribersService.addByCertainAmountOfDays(subscriber, days);
+
+        } else {
+            Long id = subscribersService.getSubscriberByTelegramId(chatId, TypeSubscribe.FULL).getId();
+            subscribersService.update(id, LocalDateTime.now().plusDays(30));
+        }
+    }
+
+    private void addDemoInfoSubscriberToDb(String username, Long chatId, String name, TypeSubscribe typeSubscribe) {
+
+
+        Subscriber subscriber = new Subscriber();
+        subscriber.setTypeSubscribe(typeSubscribe);
+        subscriber.setTelegramId(chatId);
+        subscriber.setName(name);
+        subscriber.setLogin(username);
+        subscriber.setStartDate(LocalDateTime.now());
+        subscriber.setFinishDate(LocalDateTime.now().plusDays(3));
+        subscribersService.add(subscriber);
     }
 
 
     private SendMessage handleStartCommand(String username, String name, Long chatId) {
         SendMessage message = new SendMessage();
-        message.setText("Доступные команды:");
+        message.setText("Доступні команди: ");
         message.setReplyMarkup(getKeyboard());
         return message;
     }
@@ -406,8 +468,13 @@ public class TelegramBotHandler extends TelegramLongPollingBot {
 
     private SendMessage handleAccessCommand() {
         SendMessage message = new SendMessage();
-        message.setText("Чтобы получить полный доступ, вам необходимо отправить скриншот, подтверждающий оплату.");
+        message.setText("Щоб отримати повний доступ до DNK, Вам необхідно надіслати\n" +
+                "скріншот оплати\n" +
+                "*<b> Реквізити для оплати знаходяться в “bio” профілю телеграм</b>\n" +
+                "\n" +
+                "<b>(Важливо ☝\uD83C\uDFFC відправити саме «фото», а не «файл»)</b>");
         message.setReplyMarkup(getKeyboard());
+        message.setParseMode(ParseMode.HTML);
         return message;
     }
 

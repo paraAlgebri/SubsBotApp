@@ -57,6 +57,21 @@ public class SubscribersService {
 
         return mapperFacade.map(subscriberDal, Subscriber.class);
     }
+    public Subscriber addByCertainAmountOfDays(Subscriber subscriber, Long days) {
+
+        SubscriberDal subscriberDal = new SubscriberDal();
+        subscriberDal.setTelegramId(subscriber.getTelegramId());
+        subscriberDal.setName(subscriber.getName());
+        subscriberDal.setLogin(subscriber.getLogin());
+        subscriberDal.setStartDate(subscriber.getStartDate());
+        subscriberDal.setTypeSubscribe(subscriber.getTypeSubscribe());
+        subscriberDal.setEnable(true);
+        subscriberDal.setFinishDate(subscriber.getStartDate().plusDays(days));
+
+        subscriberDal = subscriberRepository.save(subscriberDal);
+
+        return mapperFacade.map(subscriberDal, Subscriber.class);
+    }
 
     public List<MonthStat> getStat() {
         List<SubscriberDal> data = subscriberRepository.findAllByTypeSubscribe(TypeSubscribe.FULL);
@@ -110,20 +125,20 @@ public class SubscribersService {
     }
 
     public boolean isDemoAccess(Long chatId) {
-        List<SubscriberDal> result = subscriberRepository.findByTelegramIdAndTypeSubscribe(chatId, TypeSubscribe.DEMO);
+        SubscriberDal result = subscriberRepository.findByTelegramIdAndTypeSubscribe(chatId, TypeSubscribe.DEMO);
 
-        return result == null || result.isEmpty();
+        return result == null;
     }
 
     public boolean isInDb(Long chatId) {
-        List<SubscriberDal> result = subscriberRepository.findByTelegramIdAndTypeSubscribe(chatId, TypeSubscribe.FULL);
+        SubscriberDal result= subscriberRepository.findByTelegramIdAndTypeSubscribe(chatId, TypeSubscribe.FULL);
 
-        return result == null ||result.isEmpty();
+        return result == null;
     }
 
     //get subscriber by telegram id
-    public Subscriber getSubscriberByTelegramId(Long telegramId) {
-        SubscriberDal subscriberDal = subscriberRepository.findByTelegramId(telegramId);
+    public Subscriber getSubscriberByTelegramId(Long telegramId, TypeSubscribe typeSubscribe) {
+        SubscriberDal subscriberDal = subscriberRepository.findByTelegramIdAndTypeSubscribe(telegramId, typeSubscribe);
         return mapperFacade.map(subscriberDal, Subscriber.class);
     }
 }

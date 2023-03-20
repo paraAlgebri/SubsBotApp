@@ -17,13 +17,11 @@ import java.util.List;
 public interface SubscriberRepository extends CrudRepository<SubscriberDal, Long>,
         JpaSpecificationExecutor<SubscriberDal> {
 
-    List<SubscriberDal> findByTelegramIdAndTypeSubscribe(Long chatId, TypeSubscribe type);
+    SubscriberDal findByTelegramIdAndTypeSubscribe(Long chatId, TypeSubscribe type);
 
     SubscriberDal findByTelegramId(Long chatId);
 
     List<SubscriberDal> findAllByTypeSubscribe(TypeSubscribe typeSubscribe);
-
-
 
 
     @Query("select s from SubscriberDal s where s.finishDate <= CURRENT_TIMESTAMP")
