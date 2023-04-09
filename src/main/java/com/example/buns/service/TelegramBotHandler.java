@@ -36,7 +36,7 @@ import java.util.regex.Pattern;
 @Slf4j
 public class TelegramBotHandler extends TelegramLongPollingBot {
 
-    private final String ACCESS_LABEL = "Як отримати доступ DNK?";
+    private final String ACCESS_LABEL = "Як отримати доступ D Crypto?";
     private final String DEMO_LABEL = "Хочу пробний доступ на 3 дні.";
 
     private final SubscribersService subscribersService;
@@ -265,7 +265,7 @@ public class TelegramBotHandler extends TelegramLongPollingBot {
 
         for (Subscriber subscriber : subscribers1) {
             SendMessage message = new SendMessage();
-            message.setText("<b>Увага, Ваш доступ до DNK trading закінчиться через 1 день!</b>");
+            message.setText("<b>Увага, Ваш доступ до D Crypto  закінчиться через 1 день!</b>");
             message.setChatId(String.valueOf(subscriber.getTelegramId()));
             message.setParseMode(ParseMode.HTML);
 
@@ -276,7 +276,7 @@ public class TelegramBotHandler extends TelegramLongPollingBot {
 
         for (Subscriber subscriber : subscribers5) {
             SendMessage message = new SendMessage();
-            message.setText("<b>Увага, Ваш доступ до DNK trading закінчиться через 5 днів!</b>");
+            message.setText("<b>Увага, Ваш доступ до D Crypto  закінчиться через 5 днів!</b>");
             message.setChatId(String.valueOf(subscriber.getTelegramId()));
             message.setParseMode(ParseMode.HTML);
             execute(message);
@@ -286,7 +286,7 @@ public class TelegramBotHandler extends TelegramLongPollingBot {
 
         for (Subscriber subscriber : subscribers3) {
             SendMessage message = new SendMessage();
-            message.setText("<b>Увага, Ваш доступ до DNK trading закінчиться через 3 дні!</b>");
+            message.setText("<b>Увага, Ваш доступ до D Crypto  закінчиться через 3 дні!</b>");
             message.setChatId(String.valueOf(subscriber.getTelegramId()));
             message.setParseMode(ParseMode.HTML);
             execute(message);
@@ -397,7 +397,7 @@ public class TelegramBotHandler extends TelegramLongPollingBot {
         SendMessage message = new SendMessage();
 
         if (subscribersService.isDemoAccess(chatId)) {
-            message.setText("Посилання для доступу до закритого каналу: " + getChatInviteLink() + " \nЧерез 3 пробні дні Ви будете виключені з каналу DNK trading.");
+            message.setText("Посилання для доступу до закритого каналу: " + getChatInviteLink() + " \nЧерез 3 пробні дні Ви будете виключені з каналу D Crypto.");
 
             addDemoInfoSubscriberToDb(username, chatId, name, TypeSubscribe.DEMO);
         } else {
@@ -468,7 +468,7 @@ public class TelegramBotHandler extends TelegramLongPollingBot {
 
     private SendMessage handleAccessCommand() {
         SendMessage message = new SendMessage();
-        message.setText("Щоб отримати повний доступ до DNK, Вам необхідно надіслати\n" +
+        message.setText("Щоб отримати повний доступ до D Crypto, Вам необхідно надіслати\n" +
                 "скріншот оплати\n" +
                 "*<b> Реквізити для оплати знаходяться в “bio” профілю телеграм</b>\n" +
                 "\n" +

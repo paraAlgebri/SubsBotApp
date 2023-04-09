@@ -12,23 +12,15 @@
       <change beforePath="$PROJECT_DIR$/.gradle/6.8.3/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.8.3/javaCompile/classAnalysis.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.8.3/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.8.3/javaCompile/javaCompile.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/checksums/checksums.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/checksums/sha1-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/checksums/sha1-checksums.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/c6cef26a-5534-4cc4-8f81-d5095ee33ce4.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/c6cef26a-5534-4cc4-8f81-d5095ee33ce4.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/c6cef26a-5534-4cc4-8f81-d5095ee33ce4/storage_v2/_src_/database/postgres.edMnLQ/schema/information_schema.FNRwLQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/c6cef26a-5534-4cc4-8f81-d5095ee33ce4/storage_v2/_src_/database/postgres.edMnLQ/schema/information_schema.FNRwLQ.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/c6cef26a-5534-4cc4-8f81-d5095ee33ce4/storage_v2/_src_/database/postgres.edMnLQ/schema/pg_catalog.0S1ZNQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/c6cef26a-5534-4cc4-8f81-d5095ee33ce4/storage_v2/_src_/database/postgres.edMnLQ/schema/pg_catalog.0S1ZNQ.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/c6cef26a-5534-4cc4-8f81-d5095ee33ce4/storage_v2/_src_/database/postgres.edMnLQ/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/c6cef26a-5534-4cc4-8f81-d5095ee33ce4/storage_v2/_src_/database/postgres.edMnLQ/schema/public.abK9xQ.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Dockerfile" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/example/buns/dal/repository/SubscriberRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/example/buns/dal/repository/SubscriberRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/example/buns/service/SubscribersService.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/example/buns/service/SubscribersService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/example/buns/service/TelegramBotHandler$COMMANDS.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/example/buns/service/TelegramBotHandler$COMMANDS.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/example/buns/service/TelegramBotHandler$Scheduler.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/example/buns/service/TelegramBotHandler$Scheduler.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/example/buns/service/TelegramBotHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/example/buns/service/TelegramBotHandler.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/libs/bot.jar" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/build/resources/main/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/application.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/source-classes-mapping.txt" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/source-classes-mapping.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/buns/dal/repository/SubscriberRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/buns/dal/repository/SubscriberRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/buns/service/SubscribersService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/buns/service/SubscribersService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/buns/service/TelegramBotHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/buns/service/TelegramBotHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.yaml" afterDir="false" />
     </list>
@@ -255,8 +247,8 @@
     <recent_temporary>
       <list>
         <item itemvalue="Gradle.SubsBotApp [bootJar]" />
-        <item itemvalue="Gradle.SubsBotApp [jar]" />
         <item itemvalue="Gradle.SubsBotApp [dependencies]" />
+        <item itemvalue="Gradle.SubsBotApp [jar]" />
         <item itemvalue="Docker.docker-compose.yaml.app: Compose Deployment" />
         <item itemvalue="Docker.docker-compose.yaml.pgadmin: Compose Deployment" />
       </list>
@@ -296,6 +288,8 @@
       <workItem from="1678979070877" duration="765000" />
       <workItem from="1679058955452" duration="2223000" />
       <workItem from="1679312172965" duration="6103000" />
+      <workItem from="1680964416110" duration="1830000" />
+      <workItem from="1681032295038" duration="19000" />
     </task>
     <servers />
   </component>
