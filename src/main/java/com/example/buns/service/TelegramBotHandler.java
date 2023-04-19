@@ -220,29 +220,32 @@ public class TelegramBotHandler extends TelegramLongPollingBot {
     }
 
     public void clearExpired() throws TelegramApiException {
-        List<Subscriber> subscribers = subscribersService.getExpired();
+        List<Subscriber> subscribersExpired = subscribersService.getExpired();
         List<Subscriber> successDeleted = new ArrayList<>();
+        List<Subscriber> subscribersNotExpired = subscribersService.getNotExpired();
 
-        for (Subscriber subscriber : subscribers) {
-            try {
-                BanChatMember banChatMember = new BanChatMember();
-                banChatMember.setChatId(String.valueOf(privateChannelId));
-                banChatMember.setUserId((subscriber.getTelegramId()));
-                execute(banChatMember);
+        for (Subscriber subscriber : subscribersExpired) {
+            if (!subscribersService.checkSub(subscriber.getTelegramId(),subscribersNotExpired)) {
+                try {
+                    BanChatMember banChatMember = new BanChatMember();
+                    banChatMember.setChatId(String.valueOf(privateChannelId));
+                    banChatMember.setUserId((subscriber.getTelegramId()));
+                    execute(banChatMember);
 
-                subscribersService.disable(subscriber.getId());
+                    subscribersService.disable(subscriber.getId());
 
-                SendMessage message = new SendMessage();
-                message.setText("Ваш доступ до каналу вичерпано");
-                message.setChatId(String.valueOf(subscriber.getTelegramId()));
-                execute(message);
+                    SendMessage message = new SendMessage();
+                    message.setText("Ваш доступ до каналу вичерпано");
+                    message.setChatId(String.valueOf(subscriber.getTelegramId()));
+                    execute(message);
 
-                successDeleted.add(subscriber);
+                    successDeleted.add(subscriber);
 
-                Thread.sleep(100);
-            } catch (Exception ex) {
-                ex.printStackTrace();
-                sendInfoToSupport("Ошибка при удалении \nChat ID = " + subscriber.getTelegramId() + "\nID = " + subscriber.getId() + "\n" + ex.getMessage());
+                    Thread.sleep(100);
+                } catch (Exception ex) {
+                    ex.printStackTrace();
+                    sendInfoToSupport("Ошибка при удалении \nChat ID = " + subscriber.getTelegramId() + "\nID = " + subscriber.getId() + "\n" + ex.getMessage());
+                }
             }
         }
     }

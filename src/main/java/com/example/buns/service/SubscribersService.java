@@ -12,10 +12,7 @@ import org.springframework.stereotype.Service;
 import javax.transaction.Transactional;
 import java.time.LocalDateTime;
 import java.time.format.TextStyle;
-import java.util.List;
-import java.util.Locale;
-import java.util.Map;
-import java.util.Optional;
+import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.StreamSupport;
 
@@ -86,23 +83,34 @@ public class SubscribersService {
 
 
     }
+    public boolean checkSub(Long telegramId, List<Subscriber> subscribers){
+        for (Subscriber subscriber: subscribers) {
+            if(Objects.equals(subscriber.getTelegramId(), telegramId)){
+                return true;
+            }
+        }
+        return false;
+    }
 
     public void disable(Long id) throws Exception {
-
         Optional<SubscriberDal> subscriber = subscriberRepository.findById(id);
 
         if (!subscriber.isPresent()) {
             throw new Exception("Subscriber not found");
         }
 
-        subscriber.get().setEnable(false);
+        subscriberRepository.updateEnableSubscriber(false,id);
 
-        subscriberRepository.save(subscriber.get());
     }
 
     @Transactional
     public List<Subscriber> getExpired() {
         return mapperFacade.mapAsList(subscriberRepository.findAllExpired(), Subscriber.class);
+    }
+
+    @Transactional
+    public List<Subscriber> getNotExpired() {
+        return mapperFacade.mapAsList(subscriberRepository.findAllNotExpired(), Subscriber.class);
     }
 
     @Transactional

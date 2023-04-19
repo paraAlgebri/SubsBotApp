@@ -1,11 +1,11 @@
 version: '2'
 
 services:
-  app:
+  app2:
     image: 'docker-spring-boot-postgres:latest'
     build:
       context: .
-    container_name: app
+    container_name: app2
     depends_on:
       - db
     environment:

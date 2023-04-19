@@ -5,6 +5,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.Objects;
 
 @Transactional
 @Entity
@@ -36,4 +37,17 @@ public class SubscriberDal {
     private TypeSubscribe typeSubscribe;
 
     private Boolean enable;
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        SubscriberDal that = (SubscriberDal) o;
+        return Objects.equals(telegramId, that.telegramId);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(telegramId);
+    }
 }
