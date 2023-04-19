@@ -15,7 +15,7 @@ spring:
 
 telegram:
   name: SubManagementBot
-  token: 5813502079:AAE82TJ2PoXJKQXEjw1OGv6WUG9OXgNMMPo
-  chanel-id: -1001815692806
+  token: 6102264343:AAEz7dAkQhH0sUNJN3ZgwZy4hbuq-9fmEps
+  chanel-id: -1001947953660
   support:
-    chat-id: 438760453
+    chat-id: 1883198589

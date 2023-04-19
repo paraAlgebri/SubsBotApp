@@ -9,35 +9,9 @@
       <change beforePath="$PROJECT_DIR$/.gradle/6.8.3/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.8.3/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.8.3/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.8.3/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.8.3/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.8.3/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.8.3/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.8.3/javaCompile/classAnalysis.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.8.3/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.8.3/javaCompile/javaCompile.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.8.3/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.8.3/javaCompile/taskHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/checksums/checksums.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/checksums/md5-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/checksums/md5-checksums.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/checksums/sha1-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/checksums/sha1-checksums.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/c6cef26a-5534-4cc4-8f81-d5095ee33ce4.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/c6cef26a-5534-4cc4-8f81-d5095ee33ce4.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/c6cef26a-5534-4cc4-8f81-d5095ee33ce4/storage_v2/_src_/database/postgres.edMnLQ/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/c6cef26a-5534-4cc4-8f81-d5095ee33ce4/storage_v2/_src_/database/postgres.edMnLQ/schema/public.abK9xQ.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/example/buns/dal/entity/SubscriberDal.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/example/buns/dal/entity/SubscriberDal.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/example/buns/dal/repository/SubscriberRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/example/buns/dal/repository/SubscriberRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/example/buns/service/SubscribersService.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/example/buns/service/SubscribersService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/example/buns/service/TelegramBotHandler$Scheduler.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/example/buns/service/TelegramBotHandler$Scheduler.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/example/buns/service/TelegramBotHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/example/buns/service/TelegramBotHandler.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/libs/bot.jar" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/build/resources/main/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/application.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/source-classes-mapping.txt" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/source-classes-mapping.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pgadmin/storage/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pgadmin/application.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/buns/dal/entity/SubscriberDal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/buns/dal/entity/SubscriberDal.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/buns/dal/repository/SubscriberRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/buns/dal/repository/SubscriberRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/buns/service/SubscribersService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/buns/service/SubscribersService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/buns/service/TelegramBotHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/buns/service/TelegramBotHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -130,10 +104,10 @@
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\barga\IdeaProjects\SubsBotApp\src\main\resources" />
+      <recent name="C:\Users\barga\IdeaProjects\SubsBotApp\pgadmin\storage" />
       <recent name="C:\Users\barga\IdeaProjects\SubsBotApp\pgadmin" />
       <recent name="C:\Users\barga\Documents\buns-api\SubsBotApp\src\main\resources" />
       <recent name="C:\Users\barga\Documents\buns-api\SubsBotApp\pgadmin\storage" />
-      <recent name="C:\Users\barga\Documents\buns-api\SubsBotApp\pgadmin" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -143,7 +117,7 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Docker.docker-compose.yaml.app2: Compose Deployment">
+  <component name="RunManager" selected="Gradle.SubsBotApp [bootJar]">
     <configuration name="SubsBotApp [bootJar]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -265,8 +239,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Docker.docker-compose.yaml.app2: Compose Deployment" />
         <item itemvalue="Gradle.SubsBotApp [bootJar]" />
+        <item itemvalue="Docker.docker-compose.yaml.app2: Compose Deployment" />
         <item itemvalue="Gradle.SubsBotApp [dependencies]" />
         <item itemvalue="Gradle.SubsBotApp [jar]" />
         <item itemvalue="Docker.docker-compose.yaml.app: Compose Deployment" />
@@ -312,7 +286,7 @@
       <workItem from="1681804811663" duration="23000" />
       <workItem from="1681834615832" duration="2513000" />
       <workItem from="1681837559409" duration="3424000" />
-      <workItem from="1681891783375" duration="1662000" />
+      <workItem from="1681891783375" duration="2504000" />
     </task>
     <servers />
   </component>
