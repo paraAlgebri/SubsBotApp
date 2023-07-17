@@ -14,8 +14,8 @@ spring:
       hibernate.globally_quoted_identifiers: true
 
 telegram:
-  name: SubManagementBot
-  token: 6107042263:AAFDzjfmzJe-UhBFCzxbhx3iezz_YG5kKqs
-  chanel-id: -1001604083879
+  name: //BotName
+  token: //Telegram token of your bot
+  chanel-id: //Id of chanel which has to be moderated
   support:
-    chat-id: 1883198589
+    chat-id: // Id of admin which will operate this Bot via telegram

@@ -4,7 +4,29 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3afff132-9c00-431a-972c-60c6d81ece31" name="Changes" comment="" />
+    <list default="true" id="3afff132-9c00-431a-972c-60c6d81ece31" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.gradle/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/checksums/checksums.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/checksums/sha1-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/checksums/sha1-checksums.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/c6cef26a-5534-4cc4-8f81-d5095ee33ce4.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/c6cef26a-5534-4cc4-8f81-d5095ee33ce4.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/libs/bot.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hs_err_pid25992.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hs_err_pid9188.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pgadmin/sessions/3a8d3bf9-7d85-4003-a574-c99c9b28f359" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pgadmin/storage/application.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/buns/BotApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/bot/BotApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/buns/config/SecurityConfig.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/buns/dal/entity/SubscriberDal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/bot/dal/entity/SubscriberDal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/buns/dal/entity/TypeSubscribe.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/bot/dal/entity/TypeSubscribe.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/buns/dal/repository/SubscriberRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/bot/dal/repository/SubscriberRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/buns/rest/controller/SubscriberController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/bot/rest/controller/SubscriberController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/buns/rest/model/MonthStat.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/buns/rest/model/Subscriber.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/bot/rest/model/Subscriber.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/buns/service/SubscribersService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/bot/service/SubscribersService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/buns/service/TelegramBotHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/bot/service/TelegramBotHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.yaml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -178,7 +200,7 @@
     </configuration>
     <configuration name="BotApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <module name="com.example.bot.main" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.buns.BotApplication" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.bot.BotApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -280,6 +302,7 @@
       <workItem from="1681837559409" duration="3424000" />
       <workItem from="1681891783375" duration="8249000" />
       <workItem from="1681907886229" duration="1052000" />
+      <workItem from="1689594663726" duration="1403000" />
     </task>
     <servers />
   </component>
