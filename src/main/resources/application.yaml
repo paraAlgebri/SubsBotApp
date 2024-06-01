@@ -7,15 +7,18 @@ spring:
     driver-class-name: org.postgresql.Driver
     url: ${SPRING_DATASOURCE_URL:jdbc:postgresql://localhost:5432/postgres}
     username: ${JDBC_DATABASE_USERNAME:postgres}
-    password: ${JDBC_DATABASE_PASSWORD:root}
+    password: ${JDBC_DATABASE_PASSWORD:postgres}
   jpa:
     properties:
       hibernate.dialect: org.hibernate.dialect.PostgreSQLDialect
       hibernate.globally_quoted_identifiers: true
 
 telegram:
-  name: //BotName
-  token: //Telegram token of your bot
-  chanel-id: //Id of chanel which has to be moderated
+  name: testBot
+  token: 6771482853:AAFA3NCPV9N9HFBLyquZhhku6u9ci44bBv8
+  payment-token: 1661751239:TEST:yNSi-y729-xwJl-jqhN
+  chanel-id: -1001517003082
+  second-name: Test channel
   support:
-    chat-id: // Id of admin which will operate this Bot via telegram
+    chat-id: 438760453
+

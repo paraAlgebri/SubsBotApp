@@ -13,8 +13,6 @@ import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
-import java.util.stream.Collectors;
-import java.util.stream.StreamSupport;
 
 
 @Service
@@ -24,11 +22,6 @@ public class SubscribersService {
     private final SubscriberRepository subscriberRepository;
     private final MapperFacade mapperFacade;
 
-
-    public List<Subscriber> getAll() {
-        return mapperFacade.mapAsList(StreamSupport.stream(subscriberRepository.findAll().spliterator(), false)
-                .collect(Collectors.toList()), Subscriber.class);
-    }
 
 
     public Subscriber add(Subscriber subscriber) {
@@ -52,6 +45,7 @@ public class SubscribersService {
 
         return mapperFacade.map(subscriberDal, Subscriber.class);
     }
+
     public Subscriber addByCertainAmountOfDays(Subscriber subscriber, Long days) {
 
         SubscriberDal subscriberDal = new SubscriberDal();
@@ -69,14 +63,14 @@ public class SubscribersService {
     }
 
 
-    public void update(Long id, LocalDateTime finishdate){
-       subscriberRepository.updateSubscriber(finishdate,id);
-
+    public void update(Long id, LocalDateTime finishdate) {
+        subscriberRepository.updateSubscriber(finishdate, id);
 
     }
-    public boolean checkSub(Long telegramId, List<Subscriber> subscribers){
-        for (Subscriber subscriber: subscribers) {
-            if(Objects.equals(subscriber.getTelegramId(), telegramId)){
+
+    public boolean checkSub(Long telegramId, List<Subscriber> subscribers) {
+        for (Subscriber subscriber : subscribers) {
+            if (Objects.equals(subscriber.getTelegramId(), telegramId)) {
                 return true;
             }
         }
@@ -90,7 +84,7 @@ public class SubscribersService {
             throw new Exception("Subscriber not found");
         }
 
-        subscriberRepository.updateEnableSubscriber(false,id);
+        subscriberRepository.updateEnableSubscriber(false, id);
 
     }
 
@@ -104,19 +98,21 @@ public class SubscribersService {
         return mapperFacade.mapAsList(subscriberRepository.findAllNotExpired(), Subscriber.class);
     }
 
+
     @Transactional
     public List<Subscriber> getExpiredIn1Day() {
         return mapperFacade.mapAsList(subscriberRepository.findAllIn1DayExpired(), Subscriber.class);
     }
 
+    public List<Subscriber> getExpiredIn3Days() {
+        return mapperFacade.mapAsList(subscriberRepository.findAllIn3DaysExpired(), Subscriber.class);
+    }
     @Transactional
     public List<Subscriber> getExpiredIn5Days() {
         return mapperFacade.mapAsList(subscriberRepository.findAllIn5DaysExpired(), Subscriber.class);
     }
 
-    public List<Subscriber> getExpiredIn3Days() {
-        return mapperFacade.mapAsList(subscriberRepository.findAllIn3DaysExpired(), Subscriber.class);
-    }
+
 
 
     public void remove(Long id) {
@@ -130,14 +126,15 @@ public class SubscribersService {
     }
 
     public boolean isInDb(Long chatId) {
-        SubscriberDal result= subscriberRepository.findByTelegramIdAndTypeSubscribe(chatId, TypeSubscribe.FULL);
+        SubscriberDal result = subscriberRepository.findByTelegramIdAndTypeSubscribe(chatId, TypeSubscribe.FULL);
 
         return result == null;
     }
 
     //get subscriber by telegram id
     public Subscriber getSubscriberByTelegramId(Long telegramId, TypeSubscribe typeSubscribe) {
-        SubscriberDal subscriberDal = subscriberRepository.findByTelegramIdAndTypeSubscribe(telegramId, typeSubscribe);
+        SubscriberDal subscriberDal = subscriberRepository.findByTelegramIdAndTypeSubscribe(telegramId,
+                typeSubscribe);
         return mapperFacade.map(subscriberDal, Subscriber.class);
     }
 }

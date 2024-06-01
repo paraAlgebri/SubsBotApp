@@ -1,22 +1,16 @@
-com/example/buns/rest/model/MonthStat.java
- com.example.buns.rest.model.MonthStat
-com/example/buns/dal/entity/SubscriberDal.java
- com.example.buns.dal.entity.SubscriberDal
-com/example/buns/dal/entity/TypeSubscribe.java
- com.example.buns.dal.entity.TypeSubscribe
-com/example/buns/BotApplication.java
- com.example.buns.BotApplication
-com/example/buns/config/SecurityConfig.java
- com.example.buns.config.SecurityConfig
-com/example/buns/rest/model/Subscriber.java
- com.example.buns.rest.model.Subscriber
-com/example/buns/dal/repository/SubscriberRepository.java
- com.example.buns.dal.repository.SubscriberRepository
-com/example/buns/rest/controller/SubscriberController.java
- com.example.buns.rest.controller.SubscriberController
-com/example/buns/service/SubscribersService.java
- com.example.buns.service.SubscribersService
-com/example/buns/service/TelegramBotHandler.java
- com.example.buns.service.TelegramBotHandler
- com.example.buns.service.TelegramBotHandler$COMMANDS
- com.example.buns.service.TelegramBotHandler$Scheduler
+com/example/bot/dal/entity/TypeSubscribe.java
+ com.example.bot.dal.entity.TypeSubscribe
+com/example/bot/rest/model/Subscriber.java
+ com.example.bot.rest.model.Subscriber
+com/example/bot/dal/entity/SubscriberDal.java
+ com.example.bot.dal.entity.SubscriberDal
+com/example/bot/BotApplication.java
+ com.example.bot.BotApplication
+com/example/bot/service/SubscribersService.java
+ com.example.bot.service.SubscribersService
+com/example/bot/dal/repository/SubscriberRepository.java
+ com.example.bot.dal.repository.SubscriberRepository
+com/example/bot/service/TelegramBotHandler.java
+ com.example.bot.service.TelegramBotHandler
+ com.example.bot.service.TelegramBotHandler$COMMANDS
+ com.example.bot.service.TelegramBotHandler$Scheduler

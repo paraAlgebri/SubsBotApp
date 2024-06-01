@@ -31,7 +31,7 @@ public interface SubscriberRepository extends CrudRepository<SubscriberDal, Long
     @Query("select s from SubscriberDal s where s.finishDate >= CURRENT_TIMESTAMP")
     List<SubscriberDal> findAllNotExpired();
 
-    //find all subscribers with finish date in 3 days
+
     @Query("select s from SubscriberDal s where s.finishDate <= current_date + 5 and s.finishDate > current_date + 4" +
             " and s.typeSubscribe = 'FULL'")
     List<SubscriberDal> findAllIn5DaysExpired();
@@ -43,7 +43,7 @@ public interface SubscriberRepository extends CrudRepository<SubscriberDal, Long
     @Query("select s from SubscriberDal s where s.finishDate <= current_date + 1 and s.finishDate > current_date " +
             " and  s.typeSubscribe = 'FULL'")
     List<SubscriberDal> findAllIn1DayExpired();
-    //write query to update subscriber info on postgres
+
     @Transactional
     @Modifying
     @Query("update SubscriberDal s set s.finishDate = ?1 where  s.id = ?2")
