@@ -1,7 +1,3 @@
-server:
-  servlet:
-    context-path: /api
-
 spring:
   datasource:
     driver-class-name: org.postgresql.Driver
@@ -14,11 +10,11 @@ spring:
       hibernate.globally_quoted_identifiers: true
 
 telegram:
-  name: testBot
-  token: 6771482853:AAFA3NCPV9N9HFBLyquZhhku6u9ci44bBv8
-  payment-token: 1661751239:TEST:yNSi-y729-xwJl-jqhN
-  chanel-id: -1001517003082
+  name: 
+  token: 
+  payment-token: 
+  chanel-id: 
   second-name: Test channel
   support:
-    chat-id: 438760453
+    chat-id: 
 
