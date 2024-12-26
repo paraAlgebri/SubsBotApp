@@ -1,0 +1,20 @@
+spring:
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: ${SPRING_DATASOURCE_URL:jdbc:postgresql://localhost:5432/postgres}
+    username: ${JDBC_DATABASE_USERNAME:postgres}
+    password: ${JDBC_DATABASE_PASSWORD:postgres}
+  jpa:
+    properties:
+      hibernate.dialect: org.hibernate.dialect.PostgreSQLDialect
+      hibernate.globally_quoted_identifiers: true
+
+telegram:
+  name: bargaminbot
+  token: 6771482853:AAFA3NCPV9N9HFBLyquZhhku6u9ci44bBv8
+  payment-token: 
+  chanel-id: -1002297673529
+  second-name: Test channel
+  support:
+    chat-id: 438760453
+

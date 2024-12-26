@@ -10,11 +10,11 @@ spring:
       hibernate.globally_quoted_identifiers: true
 
 telegram:
-  name: 
-  token: 
+  name: bargaminbot
+  token: 6771482853:AAFA3NCPV9N9HFBLyquZhhku6u9ci44bBv8
   payment-token: 
-  chanel-id: 
+  chanel-id: -1002297673529
   second-name: Test channel
   support:
-    chat-id: 
+    chat-id: 438760453
 

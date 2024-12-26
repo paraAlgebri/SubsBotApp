@@ -1,16 +1,26 @@
 com/example/bot/dal/entity/TypeSubscribe.java
  com.example.bot.dal.entity.TypeSubscribe
-com/example/bot/rest/model/Subscriber.java
- com.example.bot.rest.model.Subscriber
 com/example/bot/dal/entity/SubscriberDal.java
  com.example.bot.dal.entity.SubscriberDal
+com/example/bot/rest/model/Subscriber.java
+ com.example.bot.rest.model.Subscriber
 com/example/bot/BotApplication.java
  com.example.bot.BotApplication
+com/example/bot/service/Subscription.java
+ com.example.bot.service.Subscription
+com/example/bot/service/BasicSubscription.java
+ com.example.bot.service.BasicSubscription
+com/example/bot/service/SubscriptionFactory.java
+ com.example.bot.service.SubscriptionFactory
 com/example/bot/service/SubscribersService.java
  com.example.bot.service.SubscribersService
-com/example/bot/dal/repository/SubscriberRepository.java
- com.example.bot.dal.repository.SubscriberRepository
 com/example/bot/service/TelegramBotHandler.java
  com.example.bot.service.TelegramBotHandler
  com.example.bot.service.TelegramBotHandler$COMMANDS
  com.example.bot.service.TelegramBotHandler$Scheduler
+com/example/bot/dal/repository/SubscriberRepository.java
+ com.example.bot.dal.repository.SubscriberRepository
+com/example/bot/dal/repository/CustomSubscriberRepository.java
+ com.example.bot.dal.repository.CustomSubscriberRepository
+com/example/bot/dal/repository/CustomSubscriberRepositoryImpl.java
+ com.example.bot.dal.repository.CustomSubscriberRepositoryImpl

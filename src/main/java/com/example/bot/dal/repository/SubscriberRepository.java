@@ -12,10 +12,10 @@ import org.springframework.transaction.annotation.Transactional;
 import java.time.LocalDateTime;
 import java.util.List;
 
-
+// Основний інтерфейс SubscriberRepository
 @Repository
 public interface SubscriberRepository extends CrudRepository<SubscriberDal, Long>,
-        JpaSpecificationExecutor<SubscriberDal> {
+        JpaSpecificationExecutor<SubscriberDal>, CustomSubscriberRepository {
 
     SubscriberDal findByTelegramIdAndTypeSubscribe(Long chatId, TypeSubscribe type);
 
@@ -23,36 +23,20 @@ public interface SubscriberRepository extends CrudRepository<SubscriberDal, Long
 
     List<SubscriberDal> findAllByTypeSubscribe(TypeSubscribe typeSubscribe);
 
-
-
     @Query("select s from SubscriberDal s where s.finishDate <= CURRENT_TIMESTAMP")
     List<SubscriberDal> findAllExpired();
 
     @Query("select s from SubscriberDal s where s.finishDate >= CURRENT_TIMESTAMP")
     List<SubscriberDal> findAllNotExpired();
 
-
-    @Query("select s from SubscriberDal s where s.finishDate <= current_date + 5 and s.finishDate > current_date + 4" +
-            " and s.typeSubscribe = 'FULL'")
-    List<SubscriberDal> findAllIn5DaysExpired();
-
-    @Query("select s from SubscriberDal s where s.finishDate <= current_date + 3 and s.finishDate > current_date + 2" +
-            " and  s.typeSubscribe = 'FULL'")
-    List<SubscriberDal> findAllIn3DaysExpired();
-
-    @Query("select s from SubscriberDal s where s.finishDate <= current_date + 1 and s.finishDate > current_date " +
-            " and  s.typeSubscribe = 'FULL'")
-    List<SubscriberDal> findAllIn1DayExpired();
+    @Transactional
+    @Modifying
+    @Query("update SubscriberDal s set s.finishDate = :finishDate where s.id = :id")
+    void updateSubscriber(LocalDateTime finishDate, Long id);
 
     @Transactional
     @Modifying
-    @Query("update SubscriberDal s set s.finishDate = ?1 where  s.id = ?2")
-    void updateSubscriber( LocalDateTime finishDate, Long id);
-
-    @Transactional
-    @Modifying
-    @Query("update SubscriberDal s set s.enable = ?1 where  s.id = ?2")
-    void updateEnableSubscriber( boolean enable, Long id);
-
-
+    @Query("update SubscriberDal s set s.enable = :enable where s.id = :id")
+    void updateEnableSubscriber(boolean enable, Long id);
 }
+

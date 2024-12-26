@@ -267,7 +267,7 @@ public class TelegramBotHandler extends TelegramLongPollingBot {
     }
 
     public void notifyExpiredSoon() throws TelegramApiException {
-        List<Subscriber> subscribers1 = subscribersService.getExpiredIn1Day();
+        List<Subscriber> subscribers1 = subscribersService.getExpiredWithinDays(1, TypeSubscribe.FULL);
 
         for (Subscriber subscriber : subscribers1) {
             SendMessage message = new SendMessage();
@@ -278,7 +278,7 @@ public class TelegramBotHandler extends TelegramLongPollingBot {
             execute(message);
 
         }
-        List<Subscriber> subscribers5 = subscribersService.getExpiredIn5Days();
+        List<Subscriber> subscribers5 = subscribersService.getExpiredWithinDays(5, TypeSubscribe.FULL);
 
         for (Subscriber subscriber : subscribers5) {
             SendMessage message = new SendMessage();
@@ -288,7 +288,7 @@ public class TelegramBotHandler extends TelegramLongPollingBot {
             execute(message);
 
         }
-        List<Subscriber> subscribers3 = subscribersService.getExpiredIn3Days();
+        List<Subscriber> subscribers3 = subscribersService.getExpiredWithinDays(3, TypeSubscribe.FULL);
 
         for (Subscriber subscriber : subscribers3) {
             SendMessage message = new SendMessage();
@@ -556,7 +556,7 @@ public class TelegramBotHandler extends TelegramLongPollingBot {
     }
 
     @Getter
-    private enum COMMANDS {
+    public enum COMMANDS {
         INFO("/info"),
         START("/start"),
         DEMO("/demo"),
@@ -572,14 +572,11 @@ public class TelegramBotHandler extends TelegramLongPollingBot {
 
     }
 
-    @Component
-    class Scheduler {
-        //fixedRate in milliseconds 3600000 * 24 = 1 day
-        @Scheduled(fixedRate = 3600000 * 24)
-        public void reportCurrentData() throws TelegramApiException {
-            clearExpired();
-            notifyExpiredSoon();
-        }
+    //fixedRate in milliseconds 3600000 * 24 = 1 day
+    @Scheduled(fixedRate = 3600000 * 24)
+    public void reportCurrentData() throws TelegramApiException {
+        clearExpired();
+        notifyExpiredSoon();
     }
 
 }
